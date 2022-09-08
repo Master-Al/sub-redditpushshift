@@ -17,9 +17,7 @@ const SearchForm = ({ page, setIsLoading }) => {
     if (searchData.search === "" && !searchData.tags.length) {
       dispatch(getPosts());
     }
-    navegate(
-      `/posts/search?searchQuery=${searchData.search || "none"}&page=${page}`,
-    );
+    navegate(`/posts/search?searchQuery=${searchData.search || "none"}`);
     if (searchData.search === "" && !searchData.tags.length) {
       dispatch(getPosts());
     }

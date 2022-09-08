@@ -3,7 +3,6 @@ import * as api from "../api/index";
 export const getPosts = (page) => async (dispatch) => {
   try {
     const { data } = await api.FetchPosts(page);
-    console.log(data)
     dispatch({ type: "GET_POSTS", payload: data });
   } catch (error) {
     console.log(error);

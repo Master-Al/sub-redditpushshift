@@ -2,17 +2,14 @@ import axios from "axios";
 
 // const post_url = "https://memories1977.herokuapp.com/posts";
 const post_url = "http://192.168.1.100:5000/posts";
+const subreddit = "https://www.reddit.com/r/";
 
-export const FetchPosts = (page) => axios.get(`${post_url}?page=${page}`);
+export const FetchPosts = (page) => axios.get(`${subreddit}react.json`);
 
-export const getPost = (postId) => axios.get(`${post_url}/${postId}`);
+export const getPost = (postId) => axios.get(`${subreddit}react.json`);
 
 export const getPostsBySearch = (searchData, page) =>
-  axios.get(
-    `${post_url}/search?searchQuery=${searchData.search || "none"}&tags=${
-      searchData.tags.join(",") || []
-    }&page=${page || 1}`,
-  );
+  axios.get(`${subreddit}${searchData.search}.json`);
 
 export const createPost = (post) => axios.post(post_url, post);
 

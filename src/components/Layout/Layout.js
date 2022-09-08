@@ -26,7 +26,6 @@ const Layout = () => {
   const sectionRef = useRef();
   const [formSticky, setFormSticky] = useState(false);
   const [isFetch, setIsFetch] = useState(false);
-
   const handleScroll = () => {
     const fromTop = window.scrollY;
     const section = sectionRef.current;
@@ -52,7 +51,7 @@ const Layout = () => {
   };
 
   useEffect(() => {
-    dispatch(getPosts(page));
+    dispatch(getPosts());
     setIsFetch(true);
     // navigate(`/posts?page=${page}`);
   }, [dispatch, page]);
@@ -92,9 +91,7 @@ const Layout = () => {
                   top: "10px",
                 }}
               >
-                <Col>
-                  <Form />
-                </Col>
+                {/* <Col><Form /></Col>
                 <Col className="pagination d-none d-lg-flex my-3 py-3 d-flex justify-content-center col-12">
                   <Pagination
                     count={
@@ -104,7 +101,7 @@ const Layout = () => {
                     color="primary"
                     onChange={handleChange}
                   />
-                </Col>
+                </Col> */}
               </div>
             </Col>
           </Row>

@@ -7,7 +7,7 @@ import FormStyled from "./FormStyled.styled";
 
 const Form = () => {
   const [profile, setProfile] = useState(
-    JSON.parse(localStorage.getItem("profile"))
+    JSON.parse(localStorage.getItem("profile")),
   );
   const [newPost, setNewPost] = useState({
     creator: `${profile?.firstName} ${profile?.lastName}`,
@@ -38,9 +38,7 @@ const Form = () => {
   return (
     <>
       <FormStyled className="col-6">
-        {!profile ? (
-          <NotProfile />
-        ) : (
+        {!profile ? null : (
           <PostForm
             handlerSubmit={handlerSubmit}
             newPost={newPost}
@@ -54,13 +52,3 @@ const Form = () => {
 };
 
 export default Form;
-
-const NotProfile = () => {
-  return (
-    <>
-      <Col className="col-12 bg-light text-center py-4 text-secondary">
-        you should have an account to create posts.
-      </Col>
-    </>
-  );
-};

@@ -3,7 +3,7 @@ export const postsReducer = (state = [], action) => {
     case "GET_POSTS":
       return {
         ...state,
-        posts: action.payload.posts,
+        posts: action.payload.data.children,
         count: action.payload.count,
       };
     case "GET_POST":
@@ -11,7 +11,7 @@ export const postsReducer = (state = [], action) => {
     case "GET_POSTS_BY_SEARCH":
       return {
         ...state,
-        posts: action.payload.posts,
+        posts: action.payload.data.children,
         count: action.payload.count,
       };
     case "ADD_POST":

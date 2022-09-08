@@ -11,6 +11,7 @@ export const PostStyled = styled.div`
     border-radius: 15px 15px 0 0;
     box-shadow: 1px 1px 5px 1px #00000014;
     min-height: 400px;
+    height: 550px;
   }
 
   .header {
@@ -20,8 +21,8 @@ export const PostStyled = styled.div`
     min-height: 150px;
 
     img.overview_img {
-      min-height: 180px;
-      max-height: 300px;
+      min-height: 180px !important;
+      max-height: 190px !important;
       width: 100%;
       object-fit: cover;
     }
