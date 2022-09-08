@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getPosts } from "./actions/posts";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PrimarySearchAppBar from "./components/Navbar/Navbar";
+import Layout from "./components/Layout/Layout";
+import Auth from "./components/Auth/Auth";
+import PostDetails from "./components/PostDetails/PostDetails";
 
-function App() {
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <PrimarySearchAppBar />
+      <Routes>
+        <Route path="/" element={<Layout />} />
+        <Route path="/posts" element={<Layout />} />
+        <Route path="/posts/:id" element={<PostDetails />} />
+        <Route path="/posts/search" element={<Layout />} />
+        <Route path="/SignIn" element={<Auth type={"in"} />} />
+        <Route path="/SignUp" element={<Auth type={"up"} />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
